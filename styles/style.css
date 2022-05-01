@@ -1,0 +1,104 @@
+@font-face {
+    font-family: Spartan-Light;
+    src: url('../assets/fonts/Spartan/Spartan-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Spartan-Thin;
+    src: url('../assets/fonts/Spartan/Spartan-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Bahnschrift;
+    src: url('../assets/fonts/Bahnschrift/BAHNSCHRIFT.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-Black;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-BlackItalic;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-BlackItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-Bold;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-BoldItalic;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-ExtraBold;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-ExtraBoldItalic;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-ExtraBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-ExtraLight;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-ExtraLightItalic;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-ExtraLightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-Italic;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-Light;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-LightItalic;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-Medium;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-MediumItalic;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-Regular;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-SemiBold;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-SemiBoldItalic;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-SemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-Thin;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: FiraSansCondensed-ThinItalic;
+    src: url('../assets/fonts/Fira_Sans_Condensed/FiraSansCondensed-ThinItalic.ttf') format('truetype');
+}
