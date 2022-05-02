@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '../../assets/logo/LOGO_RUCHER_VECTOR.svg'
+import logo from '../../assets/logo/logo_rucher.svg'
 import propTypes from 'prop-types'
 
 Header.propTypes = {
@@ -21,37 +21,40 @@ export default function Header({desktopDevice}) {
                         >Accueil</NavLink>
                         </Link>
                         <Link
-                            href='product/product'
+                            href='/products/products'
                             passHref
                         ><NavLink>Nos produits</NavLink>
                         </Link>
                         <Link
-                            href='service/service'
+                            href='/services/services'
                             passHref
                         ><NavLink>Nos services</NavLink>
                         </Link>
                     </NavBarContainer>
                 }
-                <Image
-                        src={logo}
-                        alt="Logo Rucher Frissons"
-                        width={200}
-                        height={100}
-                    />
+                <ImageContainer>
+                    <Image
+                            src={logo}
+                            alt="Logo Rucher Frissons"
+                            width={200}
+                            height={100}
+                            objectFit='fill'
+                        />
+                </ImageContainer>
                 {desktopDevice &&
                     <NavBarContainer>
                         <Link
-                            href='story/story'
+                            href='/story/story'
                             passHref
                         ><NavLink>Notre histoire</NavLink>
                         </Link>
                         <Link
-                            href='dealers/dealers'
+                            href='/dealers/dealers'
                             passHref
                         ><NavLink>Nos revendeurs</NavLink>
                         </Link>
                         <Link
-                            href='contact/contact'
+                            href='/contact/contact'
                             passHref
                         ><NavLink>Nous contacter</NavLink>
                         </Link>
@@ -86,4 +89,23 @@ const NavBarContainer = styled.div`
 const NavLink = styled.a`
     font-family: FiraSansCondensed-Regular;
     font-size: 13px;
+    padding: 10px 15px;
+    ::after {
+        content: '';
+        width: 0px;
+        height: 1px;
+        display: block;
+        transition: 300ms;
+    }
+    :hover::after {
+        background: black;
+        width: 100%;
+    }
+`
+
+const ImageContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
 `

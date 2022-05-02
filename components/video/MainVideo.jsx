@@ -43,6 +43,7 @@ export default function MainVideo({desktopDevice, mobileDevice}) {
 const VideoContainer = styled.div`
     display: flex;
     width: 100%;
+    height: 100%;
     background-color: black;
     justify-content: center;
 `

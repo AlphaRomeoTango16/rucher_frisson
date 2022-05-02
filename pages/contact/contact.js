@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-export default function Product() {
+export default function Contact() {
     return (
         <Page>
 

@@ -8,11 +8,11 @@ export default function Footer() {
                 <SocialNetworkContainer>
                     <SocialNetwork
                         href='https://www.instagram.com/rucher_frisson/?hl=en'
-                        target={"_blank"}
+                        target={'_blank'}
                     >Instagram</SocialNetwork>
                     <SocialNetwork
                         href='https://www.facebook.com/rucherfrisson/'
-                        target={"_blank"}
+                        target={'_blank'}
                     >Facebook
                     </SocialNetwork>
                 </SocialNetworkContainer>
@@ -40,7 +40,6 @@ const FContainer = styled.div`
     flex-direction: column;
     width: 100%;
     height: 100%;
-    justify-content: space-between;
     align-items: center;
 `
 
@@ -49,20 +48,21 @@ const SocialNetworkContainer = styled.div`
     margin-top: 20px;
     margin-bottom: 20px;
     justify-content: space-around;
-    width: 100%;
+    width: 20%;
 `
 
 const SocialNetwork = styled.a`
     font-size: 13px;
     font-family: Spartan-Light;
     color: black;
+    margin: 10px;
 `
 
 const Credit = styled.p`
     width: 90%;
     font-family: Spartan-Light;
     text-align: center;
-    font-size: 7px;
+    font-size: 5%;
     margin-bottom: 10px;
     color: black;
 `
