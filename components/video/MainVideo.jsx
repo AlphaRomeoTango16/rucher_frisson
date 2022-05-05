@@ -11,7 +11,9 @@ export default function MainVideo({desktopDevice, mobileDevice}) {
     const videoRef = useRef();
 
     return (
-        <VideoContainer>
+        <VideoContainer
+            mobileDevice={mobileDevice}
+        >
             <video
                 ref={videoRef}
                 muted

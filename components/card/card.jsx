@@ -16,6 +16,7 @@ export default function Card({product}) {
                     src={product.mainImage}
                     alt={product.mainImageDescritpion}
                     layout='fill'
+                    objectFit='cover'
                 />
             </ImageContainer>
             <TitleContainer>
@@ -30,7 +31,6 @@ const CardContainer = styled.div`
     width: 300px;
     height: 300px;
     margin: 20px;
-    border: 1px solid;
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     flex-direction: column;

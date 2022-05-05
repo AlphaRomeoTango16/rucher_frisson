@@ -1,8 +1,15 @@
 import styled from 'styled-components'
+import propTypes from 'prop-types'
 
-export default function Footer() {
+Footer.propTypes = {
+    mobileDevice: propTypes.bool.isRequired
+}
+
+export default function Footer({mobileDevice}) {
     return (
-        <FooterContainer>
+        <FooterContainer
+            mobileDevice={mobileDevice}
+        >
             <FContainer>
 
                 <SocialNetworkContainer>
@@ -28,7 +35,8 @@ export default function Footer() {
 }
 
 const FooterContainer = styled.div`
-    position: relative;
+    position: ${({mobileDevice}) => mobileDevice ? 'fixed' : 'relative'};
+    z-index: 20;
     bottom: 0;
     width: 100%;
     background-color: white;
