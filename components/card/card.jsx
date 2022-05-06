@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'
 import Image from 'next/image';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
@@ -10,25 +11,31 @@ Card.propTypes = {
 export default function Card({product}) {
 
     return (
-        <CardContainer>
-            <ImageContainer>
-                <Image
-                    src={product.mainImage}
-                    alt={product.mainImageDescritpion}
-                    layout='fill'
-                    objectFit='cover'
-                />
-            </ImageContainer>
-            <TitleContainer>
-                <Title>{product.name}</Title>
-            </TitleContainer>
-        </CardContainer>
+        <Link
+            href={`/products/${product.id}`}
+            as={`/products/${product.id}`}
+            passHref
+        >
+            <CardContainer>
+                <ImageContainer>
+                    <Image
+                        src={product.images[0].src}
+                        alt={product.description[0].src}
+                        layout='fill'
+                        objectFit='cover'
+                    />
+                </ImageContainer>
+                <TitleContainer>
+                    <Title>{product.name}</Title>
+                </TitleContainer>
+            </CardContainer>
+        </Link>
     )
 }
 
 const CardContainer = styled.div`
     display: flex;
-    width: 300px;
+    width: 350px;
     height: 300px;
     margin: 20px;
     border-radius: 5px;
@@ -41,6 +48,8 @@ const ImageContainer = styled.div`
     width: 100%;
     height: 80%;
     position: relative;
+    border-radius: 5px;
+    overflow: hidden;
 `
 
 const TitleContainer = styled.div`

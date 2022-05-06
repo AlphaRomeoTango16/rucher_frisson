@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowUp} from '@fortawesome/free-solid-svg-icons';
-import storyImage from '../../assets/image/rucher_frisson_story.jpg'
+import storyImage from '../../assets/images/rucher_frisson_story.jpg'
 import propTypes from 'prop-types'
 
 Story.propTypes = {

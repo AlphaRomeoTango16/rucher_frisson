@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +16,7 @@ CarousellSelector.propTypes = {
 export default function CarousellSelector({productType, setProductTypeSelected}) {
     const swiperRef = useRef(null);
 
+
     return (
         <RadialGradient>
             <CarousellSelectorContainer>
@@ -26,11 +27,10 @@ export default function CarousellSelector({productType, setProductTypeSelected})
                     ref={swiperRef}
                     spaceBetween={10}
                     slidesPerView={1}
-                    onSlideChange={() => console.log('slide change')}
+                    onSlideChange={() => console.log('change')}
                     onSwiper={(swiper) => console.log(swiper)}
                 >
                     {productType.map((item, index) => {
-                        setProductTypeSelected
                         return (
                                 <SwiperSlide key={index}>
                                     <ProductTypeTitle>
