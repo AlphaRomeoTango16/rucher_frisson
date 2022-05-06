@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: Spartan-Regular;
+    src: url('../assets/fonts/Spartan/Spartan-Regular.ttf') format('truetype');
+}
+
+@font-face {
     font-family: Bahnschrift;
     src: url('../assets/fonts/Bahnschrift/BAHNSCHRIFT.TTF') format('truetype');
 }

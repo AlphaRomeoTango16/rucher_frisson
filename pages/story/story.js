@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styled from 'styled-components'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowUp} from '@fortawesome/free-solid-svg-icons';
 import storyImage from '../../assets/image/rucher_frisson_story.jpg'
 import propTypes from 'prop-types'
 
@@ -10,6 +12,15 @@ Story.propTypes = {
 }
 
 export default function Story({mobileDevice}) {
+
+    const scrollToTop = () => {
+        if (typeof window === 'object')
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+    };
+    
     return (
         <Page>
             <Head>
@@ -31,6 +42,10 @@ export default function Story({mobileDevice}) {
                 Suspendisse nec vulputate lectus. <br/><br/>Sed ac quam quis purus tempor ultrices vel ac velit. Phasellus vehicula mi et leo iaculis finibus. Fusce sapien est, ultrices et sapien vel, rutrum rutrum mauris. Aliquam eleifend, lorem ac scelerisque congue, diam ligula elementum ligula, in elementum risus augue a nulla. Vivamus efficitur vitae neque porttitor mattis. Sed ante quam, bibendum sed laoreet non, semper non turpis. Pellentesque in libero lacinia mi scelerisque rhoncus. Proin erat risus, rhoncus posuere eros nec, consequat interdum nisi. Nullam vestibulum turpis facilisis, cursus eros maximus, dictum massa. Etiam nunc nibh, commodo eget ultrices eget, semper ac neque.
                     </Text>
                 </TextContainer>
+                <ButtonToTop onClick={() => scrollToTop()}>
+                    <ArrowIcon icon={faArrowUp}/>
+                    Retourner en haut de la page.
+                </ButtonToTop>
             </Container>
         </Page>
     )
@@ -41,7 +56,9 @@ const Page = styled.div`
 
 const Container = styled.div`
     display: flex;
+    align-items: center;
     flex-direction: ${({mobileDevice}) => mobileDevice ? 'column' : 'row'};
+    margin-bottom: ${({mobileDevice}) => mobileDevice ? '120px' : '10px'};
     width: 100%;
 `
 
@@ -64,6 +81,18 @@ const Text = styled.div`
     margin-top: ${({mobileDevice}) => mobileDevice ? '20px' : '10px'};
     margin-left: ${({mobileDevice}) => mobileDevice ? '20px' : '10px'};
     margin-right: ${({mobileDevice}) => mobileDevice ? '20px' : '10px'};
-    margin-bottom: ${({mobileDevice}) => mobileDevice ? '120px' : '10px'};
     font-family: FiraSansCondensed-Light;
+`
+
+const ButtonToTop = styled.a`
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    font-family: Spartan-Regular;
+    font-size: 10px;
+`
+
+const ArrowIcon = styled(FontAwesomeIcon)`
+    width: 10px;
+    margin-right: 10px;
 `

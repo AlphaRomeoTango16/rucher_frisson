@@ -1,5 +1,7 @@
+import React, {useState, useEffect} from 'react';
 import Head from 'next/head'
 import styled from 'styled-components'
+import CarousellSelector from '../../components/carousellSelector/carousellSelector'
 import Card from '../../components/card/card'
 import products from '../../products'
 import propTypes from 'prop-types'
@@ -10,15 +12,29 @@ Products.propTypes = {
 }
 
 export default function Products({mobileDevice}) {
+    const [productTypeSelected, setProductTypeSelected] = useState(null);
+
+    const productType = ['Pollen', 'Miel'];
+
+    useEffect(() => {
+        console.log('productTypeSelected', productTypeSelected)
+    }, [productTypeSelected])
+
     return (
-        <Page
-            mobileDevice={mobileDevice}
-        >
+        <Page>
             <Head>
             <title>| Produits</title>
             </Head>
             <Container>
-                <Title>Nos produits</Title>
+                <Title
+                    mobileDevice={mobileDevice}
+                >
+                    Nos produits
+                </Title>
+                <CarousellSelector
+                    productType={productType}
+                    setProductTypeSelected={setProductTypeSelected}
+                />
                 {products.map((product, index) => {
                     return (
                         <Card
@@ -37,11 +53,12 @@ const Page = styled.div`
 const Container = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 500px;
 `
 
 const Title = styled.p`
+    margin-top: ${({mobileDevice}) => mobileDevice ? '135px' : '10px'};
     font-family: FiraSansCondensed-Bold;
-    font-size: 30px;
+    font-size: 25px;
 `
