@@ -10,12 +10,16 @@ import 'swiper/css';
 
 CarousellSelector.propTypes = {
     productType: propTypes.array.isRequired,
-    setProductTypeSelected: propTypes.func.isRequired
+    _sendData: propTypes.func.isRequired
 }
 
-export default function CarousellSelector({productType, setProductTypeSelected}) {
+export default function CarousellSelector({productType, _sendData}) {
     const swiperRef = useRef(null);
+    const [selected, setSelected] = useState([]);
 
+    useEffect(() => {
+        _sendData(selected)
+    }, [selected, _sendData]);
 
     return (
         <RadialGradient>
@@ -27,8 +31,7 @@ export default function CarousellSelector({productType, setProductTypeSelected})
                     ref={swiperRef}
                     spaceBetween={10}
                     slidesPerView={1}
-                    onSlideChange={() => console.log('change')}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    onSlideChange={() => setSelected(Swiper.activeIndex)}
                 >
                     {productType.map((item, index) => {
                         return (

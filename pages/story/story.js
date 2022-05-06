@@ -42,10 +42,12 @@ export default function Story({mobileDevice}) {
                 Suspendisse nec vulputate lectus. <br/><br/>Sed ac quam quis purus tempor ultrices vel ac velit. Phasellus vehicula mi et leo iaculis finibus. Fusce sapien est, ultrices et sapien vel, rutrum rutrum mauris. Aliquam eleifend, lorem ac scelerisque congue, diam ligula elementum ligula, in elementum risus augue a nulla. Vivamus efficitur vitae neque porttitor mattis. Sed ante quam, bibendum sed laoreet non, semper non turpis. Pellentesque in libero lacinia mi scelerisque rhoncus. Proin erat risus, rhoncus posuere eros nec, consequat interdum nisi. Nullam vestibulum turpis facilisis, cursus eros maximus, dictum massa. Etiam nunc nibh, commodo eget ultrices eget, semper ac neque.
                     </Text>
                 </TextContainer>
-                <ButtonToTop onClick={() => scrollToTop()}>
-                    <ArrowIcon icon={faArrowUp}/>
-                    Retourner en haut de la page.
-                </ButtonToTop>
+                {mobileDevice &&
+                    <ButtonToTop onClick={() => scrollToTop()}>
+                        <ArrowIcon icon={faArrowUp}/>
+                        Retourner en haut de la page.
+                    </ButtonToTop>
+                }
             </Container>
         </Page>
     )
@@ -58,14 +60,14 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: ${({mobileDevice}) => mobileDevice ? 'column' : 'row'};
-    margin-bottom: ${({mobileDevice}) => mobileDevice ? '120px' : '10px'};
+    margin-bottom: ${({mobileDevice}) => mobileDevice ? '120px' : '0px'};
     width: 100%;
 `
 
 const ImageContainer = styled.div`
     position: relative;
     width: 100%;
-    margin-top: ${({mobileDevice}) => mobileDevice ? '90px' : '10px'};
+    margin-top: ${({mobileDevice}) => mobileDevice ? '90px' : '0px'};
     width: ${({mobileDevice}) => mobileDevice ? '100%' : '50%'};
     height: ${({mobileDevice}) => mobileDevice ? '300px' : '500px'};
 `

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import propTypes from 'prop-types';
 
 ProductVideo.propTypes = {
-    desktopDevice: propTypes.bool.isRequired,
-    mobileDevice: propTypes.bool.isRequired
+    desktopDevice: propTypes.bool,
+    mobileDevice: propTypes.bool
 }
 
 export default function ProductVideo({desktopDevice, mobileDevice}) {

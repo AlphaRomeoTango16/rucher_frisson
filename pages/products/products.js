@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Head from 'next/head'
 import styled from 'styled-components'
 import CarousellSelector from '../../components/carousellSelector/carousellSelector'
@@ -17,16 +17,22 @@ export default function Products({mobileDevice}) {
 
     const productType = ['Pollen', 'Miel'];
 
-    // useEffect(() => {
-    //     console.log('productTypeSelected', productTypeSelected)
-    // }, [productTypeSelected])
+    const _sendData = (data) => {
+        setProductTypeSelected(data);
+    };
+
+    useEffect(() => {
+        console.log('productTypeSelected', productTypeSelected)
+    }, [productTypeSelected])
 
     return (
         <Page>
             <Head>
             <title>| Produits</title>
             </Head>
-            <Container>
+            <Container
+                mobileDevice={mobileDevice}
+            >
                 <Title
                     mobileDevice={mobileDevice}
                 >
@@ -34,7 +40,7 @@ export default function Products({mobileDevice}) {
                 </Title>
                 <CarousellSelector
                     productType={productType}
-                    setProductTypeSelected={setProductTypeSelected}
+                    _sendData={_sendData}
                 />
                 <DisplayProduct>
                     <DisplayButtonProduct
@@ -75,6 +81,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: ${({mobileDevice}) => mobileDevice ? '130px' : '10px'};
     width: 100%;
 `
 

@@ -6,8 +6,9 @@ import products from '../../../products';
 export default function Product(){
   const router = useRouter();
 
-  const product = products[router.query.id];
-  console.log('product', product)
+  const id = router.query.id;
+
+  const product = products.find(product => product.id === id);
 
   return (
       <Page>

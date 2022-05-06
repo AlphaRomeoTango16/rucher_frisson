@@ -37,6 +37,7 @@ export default function CardDetails({product}) {
                                 <Image
                                     src={image.src}
                                     alt={image.description}
+                                    // layout='fill'
                                     objectFit='cover'
                                 />
                             </SwiperSlide>
@@ -70,7 +71,9 @@ const CardDetailsContainer = styled.div`
 `
 
 const ImageContainer = styled.div`
+    position: relative;
     width: 100%;
+    height: 100%;
 `
 
 const ButtonLine = styled.div`
