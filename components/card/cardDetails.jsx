@@ -94,14 +94,14 @@ const ButtonBack = styled.div`
     width: 30px;
     height: 30px;
     border-radius: 100%;
-    z-index: 15;
+    z-index: 5;
     background-color: white;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 `
 
 const ButtonSwitchImage = styled.div`
     display: flex;
-    z-index: 15;
+    z-index: 5;
     justify-content: space-between;
     width: 30px;
 `

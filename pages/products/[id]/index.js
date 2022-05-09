@@ -2,8 +2,14 @@ import {useRouter} from 'next/router';
 import styled from 'styled-components';
 import CardDetails from '../../../components/card/cardDetails';
 import products from '../../../products';
+import propTypes from 'prop-types'
 
-export default function Product(){
+Product.propTypes = {
+  desktopDevice: propTypes.bool.isRequired,
+  mobileDevice: propTypes.bool.isRequired
+}
+
+export default function Product({mobileDevice}){
   const router = useRouter();
 
   const id = router.query.id;
@@ -12,7 +18,9 @@ export default function Product(){
 
   return (
       <Page>
-          <Container>
+          <Container
+            mobileDevice={mobileDevice}
+          >
             {product &&
               <CardDetails
               product={product}
@@ -30,5 +38,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: ${({mobileDevice}) => mobileDevice ? '130px' : '10px'};
     width: 100%;
 `

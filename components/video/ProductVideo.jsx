@@ -17,6 +17,7 @@ export default function ProductVideo({desktopDevice, mobileDevice}) {
                 ref={videoRef}
                 muted
                 autoPlay
+                playsInline
                 loop
                 style={{
                     width: '100%',

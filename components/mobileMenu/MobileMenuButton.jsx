@@ -11,30 +11,9 @@ export default function MobileMenuButton() {
     const showMenu = () =>  setMenuOpen(!menuOpen);
     const closeMenu = () => setMenuOpen(false);
 
-    const ref = useRef();
-    useOnClickOutside(ref, () => setMenuOpen(false));
-
-    function useOnClickOutside(ref, handler) {
-        useEffect(() => {
-            const listener = (event) => {
-                if (!ref.current || ref.current.contains(event.target)) {
-                    return;
-                }
-                handler(event);
-            };
-            document.addEventListener("mousedown", listener);
-            document.addEventListener("touchstart", listener);
-
-            return () => {
-                document.removeEventListener("mousedown", listener);
-                document.removeEventListener("touchstart", listener)
-            };
-        }, [ref, handler])
-    }
-
     return (
         <>
-        <ButtonContainer ref={ref} isOpen={menuOpen} onClick={showMenu}>
+        <ButtonContainer isOpen={menuOpen} onClick={showMenu}>
             <HexagonShadow>
                 <Hexagon>
                 {menuOpen ?
@@ -58,23 +37,23 @@ export default function MobileMenuButton() {
         <MenuContent isOpen={menuOpen}>
             <Title>Menu</Title>
             <TableContent>
-                <Link href='/' passHref onClick={closeMenu}>
-                    <NavLink>Accueil</NavLink>
+                <Link href='/' passHref>
+                    <NavLink onClick={closeMenu}>Accueil</NavLink>
                 </Link>
                 <Link href='/products/products' passHref>
-                    <NavLink>Nos produits</NavLink>
+                    <NavLink onClick={closeMenu}>Nos produits</NavLink>
                 </Link>
                 <Link href='/services/services' passHref>
-                    <NavLink>Nos services</NavLink>
+                    <NavLink onClick={closeMenu}>Nos services</NavLink>
                 </Link>
                 <Link href='/story/story' passHref>
-                    <NavLink>Notre histoire</NavLink>
+                    <NavLink onClick={closeMenu}>Notre histoire</NavLink>
                 </Link>
                 <Link href='/dealers/dealers' passHref>
-                    <NavLink>Nos revendeurs</NavLink>
+                    <NavLink onClick={closeMenu}>Nos revendeurs</NavLink>
                 </Link>
                 <Link href='/contact/contact' passHref>
-                    <NavLink>Nous contacter</NavLink>
+                    <NavLink onClick={closeMenu}>Nous contacter</NavLink>
                 </Link>
 
             </TableContent>
@@ -88,7 +67,7 @@ const ButtonContainer = styled.div`
     right: 10px;
     height: 57.735px;
     position: fixed;
-    z-index: 10;
+    z-index: 16;
 `
 
 const HexagonShadow = styled.div`
@@ -119,7 +98,7 @@ const MenuContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 3;
+    z-index: 15;
     transition: transform 0.5s ease-in-out;
     transform: ${({isOpen}) => isOpen ? 'translateX(0)' : 'translateX(-161%)'};
 `

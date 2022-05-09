@@ -9,17 +9,22 @@ import propTypes from 'prop-types';
 import 'swiper/css';
 
 CarousellSelector.propTypes = {
-    productType: propTypes.array.isRequired,
-    _sendData: propTypes.func.isRequired
 }
 
-export default function CarousellSelector({productType, _sendData}) {
-    const swiperRef = useRef(null);
-    const [selected, setSelected] = useState([]);
+export default function CarousellSelector() {
+    const [swiper, setSwiper] = useState(null);
+
+    const swiperRef = useRef;
+
+    const slideTo = (index) => {
+        if(swiper) {
+            swiper.slideTo(index);
+        }
+    }
 
     useEffect(() => {
-        _sendData(selected)
-    }, [selected, _sendData]);
+        console.log('swiper', swiper);
+    }, [swiper]);
 
     return (
         <RadialGradient>
@@ -28,20 +33,17 @@ export default function CarousellSelector({productType, _sendData}) {
                     <ChevronIconLeft onClick={() => swiperRef.current.swiper.slidePrev()} icon={faChevronLeft}/>
                 </ChevronButton>
                 <Swiper
+                    onSwiper={setSwiper}
                     ref={swiperRef}
                     spaceBetween={10}
                     slidesPerView={1}
-                    onSlideChange={() => setSelected(Swiper.activeIndex)}
                 >
-                    {productType.map((item, index) => {
-                        return (
-                                <SwiperSlide key={index}>
-                                    <ProductTypeTitle>
-                                        {item}
-                                    </ProductTypeTitle>
-                                </SwiperSlide>
-                        )
-                    })}
+                    <SwiperSlide>
+                        <ProductTypeTitle>Pollen</ProductTypeTitle>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <ProductTypeTitle>Miel</ProductTypeTitle>
+                    </SwiperSlide>
                 </Swiper>
                 <ChevronButton>
                     <ChevronIconRight onClick={() => swiperRef.current.swiper.slideNext()} icon={faChevronRight}/>
