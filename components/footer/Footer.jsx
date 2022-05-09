@@ -24,7 +24,9 @@ export default function Footer({mobileDevice}) {
                     </SocialNetwork>
                 </SocialNetworkContainer>
 
-                <Credit>
+                <Credit
+                    mobileDevice={mobileDevice}
+                >
                     Copyright ©2021.  Tous droits réservés, Amaury Frisson. Designé et conçu par Arthur Della Faille.
                 </Credit>
 
@@ -70,7 +72,7 @@ const Credit = styled.p`
     width: 90%;
     font-family: Spartan-Light;
     text-align: center;
-    font-size: 5%;
+    font-size: ${({mobileDevice}) => mobileDevice ? '5px' : '10px'};
     margin-bottom: 10px;
     color: black;
 `

@@ -2,7 +2,6 @@ import React, {useState, useEffect, useRef} from 'react';
 import Image from 'next/image'
 import Link from 'next/link'
 import styled from 'styled-components'
-import {motion} from 'framer-motion'
 import Logo from '../../assets/logo/logo_menu.svg'
 import Cross from '../../assets/logo/cross.svg'
 
@@ -38,17 +37,21 @@ export default function MobileMenuButton() {
         <ButtonContainer ref={ref} isOpen={menuOpen} onClick={showMenu}>
             <HexagonShadow>
                 <Hexagon>
-                    <motion.div
-                        animate={{ rotateY: menuOpen ? 360 : 0 }}
-                        transition={{ duration: 1 }}
-                    >
+                {menuOpen ?
                     <Image
-                        src={menuOpen ? Cross : Logo}
+                        src={Cross}
+                        alt='Fermer menu'
+                        width={30}
+                        height={25}
+                    />:
+                    <Image
+                        src={Logo}
                         alt='Ouvrir menu'
-                        width={menuOpen ? 30 : 60}
-                        height={menuOpen? 25: 50}
+                        width={60}
+                        height={50}
                     />
-                    </motion.div>
+                
+                }
                 </Hexagon>
             </HexagonShadow>
         </ButtonContainer>
@@ -131,13 +134,13 @@ const Title = styled.p`
 const TableContent = styled.div`
     display: flex;
     width: 100%;
-    height: 60%;
+    height: 20%;
     flex-direction: column;
     align-items: center;
 `
 
 const NavLink = styled.a`
     font-family: FiraSansCondensed-Regular;
-    font-size: 25px;
-    margin-bottom: 45px;
+    font-size: 23px;
+    margin-bottom: 37px;
 `

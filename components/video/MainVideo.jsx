@@ -18,10 +18,11 @@ export default function MainVideo({desktopDevice, mobileDevice}) {
                 ref={videoRef}
                 muted
                 autoPlay
+                playsInline
                 loop
                 style={{
                     width: desktopDevice ? '100%' : '100%',
-                    maxHeight: desktopDevice ? '500px' : '200%',
+                    maxHeight: desktopDevice ? '500px' : '700px',
                     objectFit: 'cover'
                 }}
             >
