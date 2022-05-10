@@ -39,7 +39,7 @@ export default function Header({desktopDevice, mobileDevice}) {
                     <Image
                             src={logo}
                             alt="Logo Rucher Frissons"
-                            width={200}
+                            width={300}
                             height={100}
                             objectFit='fill'
                         />
@@ -114,5 +114,5 @@ const ImageContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30%;
+    width: 39%;
 `
