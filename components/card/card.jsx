@@ -63,7 +63,7 @@ const TitleContainer = styled.div`
 `
 
 const Title = styled.p`
-    font-size: 10px;
+    font-size:  ${({mosaicFormat}) => mosaicFormat ? '10px' : '20px'};
     font-family: FiraSansCondensed-Light;
     margin-left: ${({mosaicFormat}) => mosaicFormat ? '10px' : '20px'};
     color: black;

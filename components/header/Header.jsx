@@ -35,11 +35,13 @@ export default function Header({desktopDevice, mobileDevice}) {
                         </Link>
                     </NavBarContainer>
                 }
-                <ImageContainer>
+                <ImageContainer
+                    mobileDevice={mobileDevice}
+                >
                     <Image
                             src={logo}
                             alt="Logo Rucher Frissons"
-                            width={300}
+                            width={200}
                             height={100}
                             objectFit='fill'
                         />
@@ -114,5 +116,5 @@ const ImageContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 39%;
+    width: ${({mobileDevice}) => mobileDevice ? '50%' : '30%'};
 `
