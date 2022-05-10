@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Head from 'next/head'
 import styled from 'styled-components'
 import CarousellSelector from '../../components/carousellSelector/carousellSelector'
-import Card from '../../components/card/card'
+import List from '../../components/displayProduct/list'
 import products from '../../products'
 import propTypes from 'prop-types'
 
@@ -11,7 +11,7 @@ Products.propTypes = {
     mobileDevice: propTypes.bool.isRequired
 }
 
-export default function Products({mobileDevice}) {
+export default function Products({mobileDevice, desktopDevice}) {
     const [swiperIndex, setSwiperIndex] = useState(0)
 
     const [displayProductSelected, setDisplayProductSelected] = useState('PRODUCT');
@@ -64,24 +64,14 @@ export default function Products({mobileDevice}) {
                         MOSAÏQUE
                     </DisplayButtonMosaique>
                 </DisplayProduct>
-                {swiperIndex === 0 &&
-                products.filter((item) => item.category === 'Pollen').map((product, index) => {
-                    return (
-                        <Card
-                            key={index}
-                            product={product}
-                        />
-                    )
-                })}
-                {swiperIndex === 1 &&
-                products.filter((item) => item.category === 'Miel').map((product, index) => {
-                    return (
-                        <Card
-                            key={index}
-                            product={product}
-                        />
-                    )
-                })}
+                {displayProductSelected === 'LIST' &&
+                    <List
+                        desktopDevice={desktopDevice}
+                        mobileDevice={mobileDevice}
+                        products={products}
+                        swiperIndex={swiperIndex}
+                    />
+                }
             </Container>
         </Page>
     )

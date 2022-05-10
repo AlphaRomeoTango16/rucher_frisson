@@ -5,7 +5,7 @@ import {faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
 
-export default function Card({product}) {
+export default function Form() {
 
     return (
         <FormContainer action='index.php' name='myform' method='POST'>
@@ -39,6 +39,7 @@ const FormContainer = styled.div`
 
 const FormTitle = styled.h2`
     display: flex;
+    font-family: FiraSansCondensed-Regular;
     margin-bottom: 50px;
 `
 
