@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import Head from 'next/head'
-import styled from 'styled-components'
-import CarousellSelector from '../../components/carousellSelector/carousellSelector'
-import List from '../../components/displayProduct/list'
-import products from '../../products'
-import propTypes from 'prop-types'
+import React, {useState} from 'react';
+import Head from 'next/head';
+import styled from 'styled-components';
+import CarousellSelector from '../../components/carousellSelector/CarousellSelector';
+import Slide from '../../components/displayProduct/Slide';
+import List from '../../components/displayProduct/List';
+import Mosaic from '../../components/displayProduct/Mosaic';
+import products from '../../products';
+import propTypes from 'prop-types';
 
 Products.propTypes = {
     desktopDevice: propTypes.bool.isRequired,
@@ -57,15 +59,31 @@ export default function Products({mobileDevice, desktopDevice}) {
                     >
                         LISTE
                     </DisplayButtonList>|
-                    <DisplayButtonMosaique
+                    <DisplayButtonMosaic
                         displayProductSelected={displayProductSelected}
-                        onClick={() => setDisplayProductSelected('MOSAIQUE')}
+                        onClick={() => setDisplayProductSelected('MOSAIC')}
                     >
                         MOSAÏQUE
-                    </DisplayButtonMosaique>
+                    </DisplayButtonMosaic>
                 </DisplayProduct>
                 {displayProductSelected === 'LIST' &&
                     <List
+                        desktopDevice={desktopDevice}
+                        mobileDevice={mobileDevice}
+                        products={products}
+                        swiperIndex={swiperIndex}
+                    />
+                }
+                {displayProductSelected === 'PRODUCT' &&
+                    <Slide
+                        desktopDevice={desktopDevice}
+                        mobileDevice={mobileDevice}
+                        products={products}
+                        swiperIndex={swiperIndex}
+                    />
+                }
+                {displayProductSelected === 'MOSAIC' &&
+                    <Mosaic
                         desktopDevice={desktopDevice}
                         mobileDevice={mobileDevice}
                         products={products}
@@ -114,9 +132,9 @@ const DisplayButtonList = styled.a`
     margin-right: 10px;
 `
 
-const DisplayButtonMosaique = styled.a`
+const DisplayButtonMosaic = styled.a`
     font-size: 15px;
-    font-family: ${({displayProductSelected}) => displayProductSelected === 'MOSAIQUE' ? 'FiraSansCondensed-Regular' : 'FiraSansCondensed-Light'};
+    font-family: ${({displayProductSelected}) => displayProductSelected === 'MOSAIC' ? 'FiraSansCondensed-Regular' : 'FiraSansCondensed-Light'};
     margin-left: 10px;
     margin-right: 10px;
 `

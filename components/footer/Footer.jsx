@@ -27,7 +27,7 @@ export default function Footer({mobileDevice}) {
                 <Credit
                     mobileDevice={mobileDevice}
                 >
-                    Copyright ©2021.  Tous droits réservés, Amaury Frisson. Designé et conçu par Arthur Della Faille.
+                    Copyright ©2022.  Tous droits réservés, Amaury Frisson. Designé et conçu par Arthur Della Faille.
                 </Credit>
 
             </FContainer>

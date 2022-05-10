@@ -5,10 +5,11 @@ import styled from 'styled-components';
 import propTypes from 'prop-types';
 
 Card.propTypes = {
-    product: propTypes.object.isRequired
+    product: propTypes.object.isRequired,
+    mosaicFormat: propTypes.bool
 }
 
-export default function Card({product}) {
+export default function Card({product, mosaicFormat}) {
 
     return (
         <Link
@@ -16,7 +17,9 @@ export default function Card({product}) {
             as={`/products/${product.id}`}
             passHref
         >
-            <CardContainer>
+            <CardContainer
+                mosaicFormat={mosaicFormat}
+            >
                 <ImageContainer>
                     <Image
                         src={product.images[0].src}
@@ -26,7 +29,9 @@ export default function Card({product}) {
                     />
                 </ImageContainer>
                 <TitleContainer>
-                    <Title>{product.name}</Title>
+                    <Title
+                        mosaicFormat={mosaicFormat}
+                    >{product.name}</Title>
                 </TitleContainer>
             </CardContainer>
         </Link>
@@ -35,8 +40,8 @@ export default function Card({product}) {
 
 const CardContainer = styled.div`
     display: flex;
-    width: 350px;
-    height: 300px;
+    width: ${({mosaicFormat}) => mosaicFormat ? '150px' : '350px'};
+    height: ${({mosaicFormat}) => mosaicFormat ? '150px' : '350px'};
     margin: 20px;
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -58,8 +63,8 @@ const TitleContainer = styled.div`
 `
 
 const Title = styled.p`
-    font-size: 15px;
+    font-size: 10px;
     font-family: FiraSansCondensed-Light;
-    margin-left: 20px;
+    margin-left: ${({mosaicFormat}) => mosaicFormat ? '10px' : '20px'};
     color: black;
 `

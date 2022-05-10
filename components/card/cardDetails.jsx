@@ -27,8 +27,6 @@ export default function CardDetails({product}) {
                     ref={swiperRef}
                     spaceBetween={10}
                     slidesPerView={1}
-                    onSlideChange={() => console.log('change')}
-                    onSwiper={(swiper) => console.log(swiper)}
                 >
                     <SwiperSlide><ProductVideo/></SwiperSlide>
                     {product.images.map((image, index) => {
@@ -37,7 +35,6 @@ export default function CardDetails({product}) {
                                 <Image
                                     src={image.src}
                                     alt={image.description}
-                                    // layout='fill'
                                     objectFit='cover'
                                 />
                             </SwiperSlide>

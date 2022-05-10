@@ -14,7 +14,7 @@ CarousellSelector.propTypes = {
 }
 
 export default function CarousellSelector({productType, setSwiperIndex}) {
-    const swiperRef = useRef;
+    const swiperRef = useRef(null);
 
     return (
         <RadialGradient>
