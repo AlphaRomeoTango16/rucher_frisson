@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import Card from '../card/Card';
+import Card from '../card/card';
 import propTypes from 'prop-types';
 
 Mosaic.propTypes = {
