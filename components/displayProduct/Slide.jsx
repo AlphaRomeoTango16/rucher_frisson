@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import styled from 'styled-components';
-import Card from '../card/card';
+import Card from '../card/Card';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import propTypes from 'prop-types';
 

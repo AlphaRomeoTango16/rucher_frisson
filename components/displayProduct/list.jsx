@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from '../card/card';
+import Card from '../card/Card';
 import propTypes from 'prop-types';
 
 List.propTypes = {
