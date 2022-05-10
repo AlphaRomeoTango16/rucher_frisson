@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import CarousellSelector from '../../components/carousellSelector/CarousellSelector';
-import Slide from '../../components/displayProduct/Slide';
-import List from '../../components/displayProduct/List';
-import Mosaic from '../../components/displayProduct/Mosaic';
+import CarousellSelector from '../../components/carousellSelector/carousellSelector';
+import Slide from '../../components/displayProduct/slide';
+import List from '../../components/displayProduct/list';
+import Mosaic from '../../components/displayProduct/mosaic';
 import products from '../../products';
 import propTypes from 'prop-types';
 
