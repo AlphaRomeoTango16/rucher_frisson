@@ -12,18 +12,20 @@ Products.propTypes = {
 }
 
 export default function Products({mobileDevice}) {
-    const [productTypeSelected, setProductTypeSelected] = useState(null);
+    const [swiperIndex, setSwiperIndex] = useState(0)
+
     const [displayProductSelected, setDisplayProductSelected] = useState('PRODUCT');
 
-    const productType = ['Pollen', 'Miel'];
-
-    const _sendData = (data) => {
-        setProductTypeSelected(data);
-    };
-
-    useEffect(() => {
-        console.log('productTypeSelected', productTypeSelected)
-    }, [productTypeSelected])
+    const productType = [
+        {
+            'index': '0',
+            'name': 'Pollen'
+        },
+        {
+            'index': '1',
+            'name': 'Miel'
+        }
+    ];
 
     return (
         <Page>
@@ -40,7 +42,7 @@ export default function Products({mobileDevice}) {
                 </Title>
                 <CarousellSelector
                     productType={productType}
-                    _sendData={_sendData}
+                    setSwiperIndex={setSwiperIndex}
                 />
                 <DisplayProduct>
                     <DisplayButtonProduct
@@ -62,7 +64,17 @@ export default function Products({mobileDevice}) {
                         MOSAÏQUE
                     </DisplayButtonMosaique>
                 </DisplayProduct>
-                {products.map((product, index) => {
+                {swiperIndex === 0 &&
+                products.filter((item) => item.category === 'Pollen').map((product, index) => {
+                    return (
+                        <Card
+                            key={index}
+                            product={product}
+                        />
+                    )
+                })}
+                {swiperIndex === 1 &&
+                products.filter((item) => item.category === 'Miel').map((product, index) => {
                     return (
                         <Card
                             key={index}

@@ -9,22 +9,12 @@ import propTypes from 'prop-types';
 import 'swiper/css';
 
 CarousellSelector.propTypes = {
+    productType: propTypes.array.isRequired,
+    setSwiperIndex: propTypes.func.isRequired
 }
 
-export default function CarousellSelector() {
-    const [swiper, setSwiper] = useState(null);
-
+export default function CarousellSelector({productType, setSwiperIndex}) {
     const swiperRef = useRef;
-
-    const slideTo = (index) => {
-        if(swiper) {
-            swiper.slideTo(index);
-        }
-    }
-
-    useEffect(() => {
-        console.log('swiper', swiper);
-    }, [swiper]);
 
     return (
         <RadialGradient>
@@ -33,17 +23,18 @@ export default function CarousellSelector() {
                     <ChevronIconLeft onClick={() => swiperRef.current.swiper.slidePrev()} icon={faChevronLeft}/>
                 </ChevronButton>
                 <Swiper
-                    onSwiper={setSwiper}
                     ref={swiperRef}
                     spaceBetween={10}
                     slidesPerView={1}
+                    onActiveIndexChange={(swiperCore) => setSwiperIndex(swiperCore.activeIndex)}
                 >
-                    <SwiperSlide>
-                        <ProductTypeTitle>Pollen</ProductTypeTitle>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <ProductTypeTitle>Miel</ProductTypeTitle>
-                    </SwiperSlide>
+                    {productType.map((category, index) => {
+                        return (
+                            <SwiperSlide key={index}>
+                                <ProductTypeTitle>{category.name}</ProductTypeTitle>
+                            </SwiperSlide>
+                        )
+                    })}
                 </Swiper>
                 <ChevronButton>
                     <ChevronIconRight onClick={() => swiperRef.current.swiper.slideNext()} icon={faChevronRight}/>
