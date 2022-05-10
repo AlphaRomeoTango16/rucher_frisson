@@ -109,10 +109,11 @@ const Title = styled.p`
     margin-top: ${({mobileDevice}) => mobileDevice ? '135px' : '10px'};
     font-family: FiraSansCondensed-Bold;
     font-size: 25px;
+    margin-bottom: 15px;
 `
 
 const DisplayProduct = styled.div`
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
     align-items: baseline;

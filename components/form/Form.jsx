@@ -66,6 +66,9 @@ const InputName = styled.input`
     border-right: none;
     border-left: none;
     border-bottom: 1px solid grey;
+    ::placeholder {
+        color: #363636;
+    }
 `
 
 const LabelEmail = styled.label`
@@ -82,6 +85,9 @@ const InputEmail = styled.input`
     border-right: none;
     border-left: none;
     border-bottom: 1px solid grey;
+    ::placeholder {
+        color: #363636;
+    }
 `
 
 const LabelText = styled.label`
@@ -95,6 +101,9 @@ const TextArea = styled.textarea`
     padding-top: 20px;
     margin: 10px;
     border: 1px solid grey;
+    ::placeholder {
+        color: #363636;
+    }
 `
 
 const InputButton = styled.button`
@@ -108,9 +117,9 @@ const InputButton = styled.button`
     font-weight: bold;
     cursor: pointer;
     border: 1px solid black;
+    color: black;
     border-radius: 10px;
     background: transparent;
-    z-index: 0;
     overflow: hidden;
     transition: 0.08s ease-in;
     :hover{
