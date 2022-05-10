@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components'
-import Card from '../card/Card'
-import propTypes from 'prop-types'
+import styled from 'styled-components';
+import Card from '../card/Card';
+import propTypes from 'prop-types';
 
 List.propTypes = {
     desktopDevice: propTypes.bool.isRequired,
