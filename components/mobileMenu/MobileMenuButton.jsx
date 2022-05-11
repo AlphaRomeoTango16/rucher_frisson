@@ -20,8 +20,8 @@ export default function MobileMenuButton() {
                     <Image
                         src={Cross}
                         alt='Fermer menu'
-                        width={30}
-                        height={25}
+                        width={60}
+                        height={50}
                     />:
                     <Image
                         src={Logo}

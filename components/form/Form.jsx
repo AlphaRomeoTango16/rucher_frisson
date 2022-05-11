@@ -65,6 +65,7 @@ const InputName = styled.input`
     border-top: none;
     border-right: none;
     border-left: none;
+    border-radius: 0;
     border-bottom: 1px solid grey;
     ::placeholder {
         color: #363636;
@@ -85,6 +86,7 @@ const InputEmail = styled.input`
     border-right: none;
     border-left: none;
     border-bottom: 1px solid grey;
+    border-radius: 0;
     ::placeholder {
         color: #363636;
     }
@@ -101,6 +103,7 @@ const TextArea = styled.textarea`
     padding-top: 20px;
     margin: 10px;
     border: 1px solid grey;
+    border-radius: 0;
     ::placeholder {
         color: #363636;
     }

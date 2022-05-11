@@ -13,7 +13,7 @@
    fill="none"
    version="1.1"
    id="svg3302"
-   sodipodi:docname="cross3.svg"
+   sodipodi:docname="cross.svg"
    inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
   <metadata
      id="metadata3308">
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -49,10 +49,11 @@
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg3302" />
+     inkscape:current-layer="svg3302"
+     inkscape:document-rotation="0" />
   <g
      id="g3873"
-     transform="matrix(13.061453,0,0,13.146399,-3.5756927,-5.5022745)">
+     transform="matrix(7.340205,0,0,7.4464087,71.154835,70.953711)">
     <line
        y1="-0.5"
        x2="34.183899"
