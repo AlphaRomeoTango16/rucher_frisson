@@ -41,19 +41,19 @@ export default function MobileMenuButton() {
                     <NavLink onClick={closeMenu}>Accueil</NavLink>
                 </Link>
                 <Link href='/products/products' passHref>
-                    <NavLink onClick={closeMenu}>Nos produits</NavLink>
+                    <NavLink onClick={closeMenu}>Produits</NavLink>
                 </Link>
                 <Link href='/services/services' passHref>
-                    <NavLink onClick={closeMenu}>Nos services</NavLink>
+                    <NavLink onClick={closeMenu}>Services</NavLink>
                 </Link>
                 <Link href='/story/story' passHref>
-                    <NavLink onClick={closeMenu}>Notre histoire</NavLink>
+                    <NavLink onClick={closeMenu}>Histoire</NavLink>
                 </Link>
                 <Link href='/dealers/dealers' passHref>
-                    <NavLink onClick={closeMenu}>Nos revendeurs</NavLink>
+                    <NavLink onClick={closeMenu}>Revendeurs</NavLink>
                 </Link>
                 <Link href='/contact/contact' passHref>
-                    <NavLink onClick={closeMenu}>Nous contacter</NavLink>
+                    <NavLink onClick={closeMenu}>Contact</NavLink>
                 </Link>
 
             </TableContent>
@@ -63,7 +63,7 @@ export default function MobileMenuButton() {
 }
 
 const ButtonContainer = styled.div`
-    top: 110px;
+    top: 100px;
     right: 10px;
     height: 57.735px;
     position: fixed;
@@ -107,19 +107,17 @@ const Title = styled.p`
     font-size: 30px;
     font-family: FiraSansCondensed-Bold;
     margin-top: 37px;
-    margin-bottom: 45px;
+    margin-bottom: 35px;
 `
 
 const TableContent = styled.div`
     display: flex;
-    width: 100%;
-    height: 20%;
     flex-direction: column;
     align-items: center;
 `
 
 const NavLink = styled.a`
     font-family: FiraSansCondensed-Regular;
-    font-size: 23px;
-    margin-bottom: 37px;
+    font-size: 20px;
+    margin-bottom: 33px;
 `

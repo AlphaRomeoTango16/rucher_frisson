@@ -16,7 +16,7 @@ Products.propTypes = {
 export default function Products({mobileDevice, desktopDevice}) {
     const [swiperIndex, setSwiperIndex] = useState(0)
 
-    const [displayProductSelected, setDisplayProductSelected] = useState('PRODUCT');
+    const [displayProductSelected, setDisplayProductSelected] = useState('MOSAIC');
 
     const productType = [
         {
@@ -47,6 +47,12 @@ export default function Products({mobileDevice, desktopDevice}) {
                     setSwiperIndex={setSwiperIndex}
                 />
                 <DisplayProduct>
+                    <DisplayButtonMosaic
+                        displayProductSelected={displayProductSelected}
+                        onClick={() => setDisplayProductSelected('MOSAIC')}
+                    >
+                        MOSAÏQUE
+                    </DisplayButtonMosaic>|
                     <DisplayButtonProduct
                         displayProductSelected={displayProductSelected}
                         onClick={() => setDisplayProductSelected('PRODUCT')}
@@ -59,13 +65,15 @@ export default function Products({mobileDevice, desktopDevice}) {
                     >
                         LISTE
                     </DisplayButtonList>|
-                    <DisplayButtonMosaic
-                        displayProductSelected={displayProductSelected}
-                        onClick={() => setDisplayProductSelected('MOSAIC')}
-                    >
-                        MOSAÏQUE
-                    </DisplayButtonMosaic>
                 </DisplayProduct>
+                {displayProductSelected === 'MOSAIC' &&
+                    <Mosaic
+                        desktopDevice={desktopDevice}
+                        mobileDevice={mobileDevice}
+                        products={products}
+                        swiperIndex={swiperIndex}
+                    />
+                }
                 {displayProductSelected === 'LIST' &&
                     <List
                         desktopDevice={desktopDevice}
@@ -76,14 +84,6 @@ export default function Products({mobileDevice, desktopDevice}) {
                 }
                 {displayProductSelected === 'PRODUCT' &&
                     <Slide
-                        desktopDevice={desktopDevice}
-                        mobileDevice={mobileDevice}
-                        products={products}
-                        swiperIndex={swiperIndex}
-                    />
-                }
-                {displayProductSelected === 'MOSAIC' &&
-                    <Mosaic
                         desktopDevice={desktopDevice}
                         mobileDevice={mobileDevice}
                         products={products}
