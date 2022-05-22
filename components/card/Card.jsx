@@ -42,7 +42,7 @@ const CardContainer = styled.div`
     display: flex;
     width: ${({mosaicFormat}) => mosaicFormat ? '150px' : '350px'};
     height: ${({mosaicFormat}) => mosaicFormat ? '150px' : '350px'};
-    margin: 20px;
+    margin: 10px;
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     flex-direction: column;

@@ -34,30 +34,31 @@ export default function MobileMenuButton() {
                 </Hexagon>
             </HexagonShadow>
         </ButtonContainer>
-        <MenuContent isOpen={menuOpen}>
-            <Title>Menu</Title>
-            <TableContent>
-                <Link href='/' passHref>
-                    <NavLink onClick={closeMenu}>Accueil</NavLink>
-                </Link>
-                <Link href='/products/products' passHref>
-                    <NavLink onClick={closeMenu}>Produits</NavLink>
-                </Link>
-                <Link href='/services/services' passHref>
-                    <NavLink onClick={closeMenu}>Services</NavLink>
-                </Link>
-                <Link href='/story/story' passHref>
-                    <NavLink onClick={closeMenu}>Histoire</NavLink>
-                </Link>
-                <Link href='/dealers/dealers' passHref>
-                    <NavLink onClick={closeMenu}>Revendeurs</NavLink>
-                </Link>
-                <Link href='/contact/contact' passHref>
-                    <NavLink onClick={closeMenu}>Contact</NavLink>
-                </Link>
-
-            </TableContent>
-        </MenuContent>
+        <Menu isOpen={menuOpen}>
+            <MenuContent>
+                <Title>Menu</Title>
+                <TableContent>
+                    <Link href='/' passHref>
+                        <NavLink onClick={closeMenu}>Accueil</NavLink>
+                    </Link>
+                    <Link href='/products/products' passHref>
+                        <NavLink onClick={closeMenu}>Produits</NavLink>
+                    </Link>
+                    <Link href='/services/services' passHref>
+                        <NavLink onClick={closeMenu}>Services</NavLink>
+                    </Link>
+                    <Link href='/story/story' passHref>
+                        <NavLink onClick={closeMenu}>Histoire</NavLink>
+                    </Link>
+                    <Link href='/dealers/dealers' passHref>
+                        <NavLink onClick={closeMenu}>Revendeurs</NavLink>
+                    </Link>
+                    <Link href='/contact/contact' passHref>
+                        <NavLink onClick={closeMenu}>Contact</NavLink>
+                    </Link>
+                </TableContent>
+            </MenuContent>
+        </Menu>
         </>
     )
 }
@@ -89,7 +90,7 @@ const Hexagon = styled.div`
     clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
 `
 
-const MenuContent = styled.div`
+const Menu = styled.div`
     width: 100%;
     height: 100%;
     margin-top: 100px;
@@ -101,6 +102,15 @@ const MenuContent = styled.div`
     z-index: 15;
     transition: transform 0.5s ease-in-out;
     transform: ${({isOpen}) => isOpen ? 'translateX(0)' : 'translateX(-161%)'};
+`
+
+const MenuContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: auto;
+    height: 900px;
 `
 
 const Title = styled.p`
