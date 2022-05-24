@@ -27,6 +27,7 @@ const DealerCardContainer = styled.div`
     display: flex;
     width: 100%;
     height: 100px;
+    margin-top: 300px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 `

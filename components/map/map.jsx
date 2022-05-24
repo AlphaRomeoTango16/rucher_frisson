@@ -23,12 +23,28 @@ export default function Map() {
         });
     });
 
+    useEffect(() => {
+        if (!map.current) return; // wait for map to initialize
+        map.current.on('load', () => {
+            map.current.resize();
+        });
+    });
+
     return (
-        <MapContent ref={mapContainer}/>
+        <MapContent>
+            <MapCanva ref={mapContainer}/>
+        </MapContent>
     )
 }
 
 const MapContent = styled.div`
     width: 100%;
+    position: relative;
     margin-top: 100px;
+`
+
+const MapCanva = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
 `
