@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Map from '../../components/map/map';
@@ -11,6 +12,8 @@ Dealers.propTypes = {
 }
 
 export default function Dealers({mobileDevice, desktopDevice}) {
+    const [storeCoordinates, setStoreCoordinates] = useState(null);
+
     return (
         <Page>
             <Head>
@@ -19,12 +22,15 @@ export default function Dealers({mobileDevice, desktopDevice}) {
             <Container
                 mobileDevice={mobileDevice}
             >
-                <Map/>
+                <Map
+                    storeCoordinates={storeCoordinates}
+                />
                 {dealers.map((dealer, index) => {
                     return (
                         <DealerCard
                             key={index}
                             dealer={dealer}
+                            setStoreCoordinates={setStoreCoordinates}
                         />
                     )
                 })
