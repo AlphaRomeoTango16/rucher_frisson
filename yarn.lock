@@ -317,10 +317,22 @@
   "resolved" "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.0.8.tgz"
   "version" "1.0.8"
 
+"@types/geojson@*":
+  "integrity" "sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA=="
+  "resolved" "https://registry.npmjs.org/@types/geojson/-/geojson-7946.0.8.tgz"
+  "version" "7946.0.8"
+
 "@types/json5@^0.0.29":
   "integrity" "sha1-7ihweulOEdK4J7y+UnC86n8+ce4="
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
+
+"@types/mapbox-gl@^2.6.0":
+  "integrity" "sha512-2/qyLtiQxiTYEQuOxaqiNiZPvjND35rde/ZQpxx8D5bEcYK4PDXWv/DIxPsfxqyhiP1E6Wbni0SfjkbqcqOfCQ=="
+  "resolved" "https://registry.npmjs.org/@types/mapbox-gl/-/mapbox-gl-2.7.2.tgz"
+  "version" "2.7.2"
+  dependencies:
+    "@types/geojson" "*"
 
 "@typescript-eslint/parser@5.10.1":
   "integrity" "sha512-GReo3tjNBwR5RnRO0K2wDIDN31cM3MmDtgyQ85oAxAmC5K3j/g85IjP+cDfcqDsDDBf1HNKQAD0WqOYL8jXqUA=="
@@ -1493,7 +1505,7 @@
   dependencies:
     "yallist" "^4.0.0"
 
-"mapbox-gl@^2.8.2":
+"mapbox-gl@*", "mapbox-gl@^2.8.2":
   "integrity" "sha512-73TgEQlh15TF1UeYhej9Tz1iU4ZhuxIwM6t+e6MxaA7Mu9vqUCZc1kZtZRAXrVeMcDHBSO6gUUjeDBOnsUZVmQ=="
   "resolved" "https://registry.npmjs.org/mapbox-gl/-/mapbox-gl-2.8.2.tgz"
   "version" "2.8.2"
@@ -1836,7 +1848,14 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react@^17.0.2 || ^18.0.0-0", "react@^18.1.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.8 || ^17.0.0 || ^18.0.0", "react@>=16.x", "react@18.1.0":
+"react-map-gl@^7.0.15":
+  "integrity" "sha512-l7x8lBhIEcHTreSgrc7hsKv5HsMY1wQg2PVXuKAPmQtgRZc9C3NGwurVJFe24gOlAwzta5UavAHWDiZdU1ZNCw=="
+  "resolved" "https://registry.npmjs.org/react-map-gl/-/react-map-gl-7.0.15.tgz"
+  "version" "7.0.15"
+  dependencies:
+    "@types/mapbox-gl" "^2.6.0"
+
+"react@^17.0.2 || ^18.0.0-0", "react@^18.1.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.3.0", "react@>=16.8 || ^17.0.0 || ^18.0.0", "react@>=16.x", "react@18.1.0":
   "integrity" "sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.1.0.tgz"
   "version" "18.1.0"

@@ -9,6 +9,10 @@ const dealers = [
             'postalCode': '78550',
             'cityName': 'Houdan'
         },
+        'coordinates': {
+            'lng': 1.601320,
+            'lat': 48.789720
+        },
         'phone': '01 30 59 72 39'
     }
 ]

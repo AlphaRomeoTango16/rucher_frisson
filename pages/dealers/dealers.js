@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import Map from '../../components/map/map';
+import MapNew from '../../components/map/mapNew';
 import dealers from '../../dealers';
 import DealerCard from '../../components/dealer/DealerCard';
 import propTypes from 'prop-types';
@@ -22,7 +22,7 @@ export default function Dealers({mobileDevice, desktopDevice}) {
             <Container
                 mobileDevice={mobileDevice}
             >
-                <Map
+                <MapNew
                     storeCoordinates={storeCoordinates}
                 />
                 {dealers.map((dealer, index) => {
