@@ -26,13 +26,13 @@ export default function DealerCard({dealer, setStoreCoordinates}) {
             selectCard();
             setStoreCoordinates(await findCoordinatesFromAddress(dealer.address2));
             }}>
-            <Content selectedcard={selectedCard}>
-                <DealerName selectedcard={selectedCard}>{dealer.name}</DealerName>
-                <DealerAdress selectedcard={selectedCard}>{dealer.address}</DealerAdress>
-                <DealerPhone selectedcard={selectedCard}>{dealer.phone}</DealerPhone>
+            <Content $selectedCard={selectedCard}>
+                <DealerName $selectedCard={selectedCard}>{dealer.name}</DealerName>
+                <DealerAdress $selectedCard={selectedCard}>{dealer.address}</DealerAdress>
+                <DealerPhone $selectedCard={selectedCard}>{dealer.phone}</DealerPhone>
             </Content>
-            <PhoneContainer selectedcard={selectedCard}>
-                <PhoneLogo icon={faPhone} selectedcard={selectedCard}/>
+            <PhoneContainer $selectedCard={selectedCard}>
+                <PhoneLogo icon={faPhone} $selectedCard={selectedCard}/>
             </PhoneContainer>
         </DealerCardContainer>
     )
@@ -52,7 +52,7 @@ const Content = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 10px;
-    background-color: ${({selectedcard}) => selectedcard ? 'black' : 'white'};
+    background-color: ${({$selectedCard}) => $selectedCard ? 'black' : 'white'};
 `
 
 const DealerName = styled.div`
@@ -60,29 +60,29 @@ const DealerName = styled.div`
     font-size: 17px;
     margin-top: 5px;
     margin-bottom: 15px;
-    color: ${({selectedcard}) => selectedcard ? 'white' : 'black'};
+    color: ${({$selectedCard}) => $selectedCard ? 'white' : 'black'};
 `
 
 const DealerAdress = styled.div`
     font-family: Spartan-Regular;
     font-size: 13px;
     margin-bottom: 10px;
-    color: ${({selectedcard}) => selectedcard ? 'white' : 'black'};
+    color: ${({$selectedCard}) => $selectedCard ? 'white' : 'black'};
 `
 
 const DealerPhone = styled.div`
     font-size: 13px;
     font-family: Spartan-Regular;
-    color: ${({selectedcard}) => selectedcard ? 'white' : 'black'};
+    color: ${({$selectedCard}) => $selectedCard ? 'white' : 'black'};
 `
 
 const PhoneContainer = styled.div`
     padding-top: 35px;
     padding-right: 35px;
-    background-color: ${({selectedcard}) => selectedcard ? 'black' : 'white'};
+    background-color: ${({$selectedCard}) => $selectedCard ? 'black' : 'white'};
 `
 
 const PhoneLogo = styled(FontAwesomeIcon)`
     width: 20px;
-    color: ${({selectedcard}) => selectedcard ? 'white' : 'black'};
+    color: ${({$selectedCard}) => $selectedCard ? 'white' : 'black'};
 `

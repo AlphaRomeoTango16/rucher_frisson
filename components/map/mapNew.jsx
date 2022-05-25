@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import Map, {useMap, Marker, FullscreenControl, NavigationControl} from 'react-map-gl';
+import React, {useRef, useEffect, useState} from 'react';
+import Map, {Marker, NavigationControl} from 'react-map-gl';
 import Image from 'next/image';
+import styled from 'styled-components';
 import MarkerLogo from '../../assets/logo/marker.png'
 import propTypes from 'prop-types';
 
@@ -11,33 +12,38 @@ MapNew.propTypes = {
 }
 
 export default function MapNew({storeCoordinates}) {
+
     const [lng, setLng] = useState(1.85);
     const [lat, setLat] = useState(48.78);
     const [zoom, setZoom] = useState(8);
 
-    const {current: map} = useMap();
+    const mapRef = useRef(null);
 
     useEffect(() => {
-        if (storeCoordinates) {
-            map.flyTo({ center: storeCoordinates })
+        if (!mapRef.current) {
+            return undefined
         }
-    });
+        if (storeCoordinates) {
+            mapRef.current.flyTo({
+                center: storeCoordinates,
+                zoom: 15
+            })
+        }
+    }, [mapRef, storeCoordinates]);
 
     return (
         <Map
+            ref={mapRef}
             initialViewState={{
             longitude: lng,
             latitude: lat,
             zoom: zoom,
             }}
-            style={{width: '100%', height: 350}}
+            style={{width: '100%', height: 300, marginTop: 100}}
             mapStyle="mapbox://styles/mapbox/streets-v9"
             attributionControl={false}
             mapboxAccessToken={accessToken}
         >
-            <FullscreenControl
-                position='bottom-left'
-            />
             <NavigationControl
                 position='bottom-right'
             />
