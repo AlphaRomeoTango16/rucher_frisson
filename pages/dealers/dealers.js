@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import MapNew from '../../components/map/mapNew';
 import dealers from '../../dealers';
 import DealerCard from '../../components/dealer/DealerCard';
+import {findCoordinatesFromAddress} from '../../lib/mapBoxService/findCoordinatesFromAdress';
 import propTypes from 'prop-types';
 
 Dealers.propTypes = {
@@ -12,7 +13,21 @@ Dealers.propTypes = {
 }
 
 export default function Dealers({mobileDevice, desktopDevice}) {
-    const [storeCoordinates, setStoreCoordinates] = useState(null);
+    const [storeCoordinates, setStoreCoordinates] = useState(
+        {lng: 1.85,lat: 48.78, zoom: 8}
+    );
+    const [selectedCard, setSelectedCard] = useState(false);
+
+    const selectCard = async (dealer) =>  {
+        setSelectedCard(!selectedCard)
+        setStoreCoordinates(await findCoordinatesFromAddress(dealer.address2));
+    };
+
+    useEffect(() => {
+        if(!selectedCard) {
+            setStoreCoordinates(null)
+        }
+    }, [storeCoordinates])
 
     return (
         <Page>
@@ -30,7 +45,8 @@ export default function Dealers({mobileDevice, desktopDevice}) {
                         <DealerCard
                             key={index}
                             dealer={dealer}
-                            setStoreCoordinates={setStoreCoordinates}
+                            selectCard={selectCard}
+                            selectedCard={selectedCard}
                         />
                     )
                 })

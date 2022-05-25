@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import {findCoordinatesFromAddress} from '../../lib/mapBoxService/findCoordinatesFromAdress';
+import React from 'react';
 import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPhone} from '@fortawesome/free-solid-svg-icons';
@@ -7,25 +6,13 @@ import propTypes from 'prop-types';
 
 DealerCard.propTypes = {
     dealer: propTypes.object.isRequired,
-    setStoreCoordinates: propTypes.func.isRequired
+    selectCard: propTypes.func.isRequired,
+    selectedCard: propTypes.bool.isRequired
 }
 
-export default function DealerCard({dealer, setStoreCoordinates}) {
-    const [selectedCard, setSelectedCard] = useState(false);
-
-    const selectCard = () =>  setSelectedCard(!selectedCard);
-
-    useEffect(() => {
-        if(!selectedCard) {
-            setStoreCoordinates(null)
-        }
-    })
-
+export default function DealerCard({dealer, selectCard, selectedCard}) {
     return (
-        <DealerCardContainer onClick={async () => {
-            selectCard();
-            setStoreCoordinates(await findCoordinatesFromAddress(dealer.address2));
-            }}>
+        <DealerCardContainer onClick={() => selectCard(dealer)}>
             <Content $selectedCard={selectedCard}>
                 <DealerName $selectedCard={selectedCard}>{dealer.name}</DealerName>
                 <DealerAdress $selectedCard={selectedCard}>{dealer.address}</DealerAdress>
