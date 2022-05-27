@@ -20,14 +20,14 @@ export default function Dealers({mobileDevice, desktopDevice}) {
 
     const selectCard = async (dealer) =>  {
         setSelectedCard(!selectedCard)
-        setStoreCoordinates(await findCoordinatesFromAddress(dealer.address2));
+        setStoreCoordinates(dealer.coordinates);
     };
 
     useEffect(() => {
         if(!selectedCard) {
             setStoreCoordinates(null)
         }
-    }, [storeCoordinates])
+    }, [selectedCard, storeCoordinates])
 
     return (
         <Page>
@@ -38,6 +38,7 @@ export default function Dealers({mobileDevice, desktopDevice}) {
                 mobileDevice={mobileDevice}
             >
                 <MapNew
+                    selectedCard={selectedCard}
                     storeCoordinates={storeCoordinates}
                 />
                 {dealers.map((dealer, index) => {

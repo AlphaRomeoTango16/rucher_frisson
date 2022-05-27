@@ -44,6 +44,7 @@ export default function Header({desktopDevice, mobileDevice}) {
                             width={200}
                             height={100}
                             objectFit='fill'
+                            priority
                         />
                 </ImageContainer>
                 {desktopDevice &&

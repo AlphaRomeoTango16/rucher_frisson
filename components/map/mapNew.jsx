@@ -8,10 +8,11 @@ import propTypes from 'prop-types';
 const accessToken = 'pk.eyJ1IjoiYWxwaGExNiIsImEiOiJja3dxN2R4NDcwandwMnBxb2s0cjN2b3dnIn0.mo5JOtJcdE20ggp-nQZGAA';
 
 MapNew.propTypes = {
-    storeCoordinates: propTypes.array,
+    selectedCard: propTypes.bool.isRequired,
+    storeCoordinates: propTypes.object,
 }
 
-export default function MapNew({storeCoordinates}) {
+export default function MapNew({selectedCard, storeCoordinates}) {
 
     const [lng, setLng] = useState(1.85);
     const [lat, setLat] = useState(48.78);
@@ -26,10 +27,16 @@ export default function MapNew({storeCoordinates}) {
         if (storeCoordinates) {
             mapRef.current.flyTo({
                 center: storeCoordinates,
-                zoom: 15
+                zoom: 16
             })
         }
-    }, [mapRef, storeCoordinates]);
+        if (!selectedCard) {
+            mapRef.current.flyTo({
+                center: [1.85, 48.78],
+                zoom: 8
+            })
+        }
+    }, [mapRef, storeCoordinates, selectedCard]);
 
     return (
         <Map
@@ -47,11 +54,11 @@ export default function MapNew({storeCoordinates}) {
             <NavigationControl
                 position='bottom-right'
             />
-            <Marker longitude={1.601320} latitude={48.790461} anchor='bottom' >
+            <Marker longitude={1.601320} latitude={48.789720} anchor='bottom' >
                 <Image
                     src={MarkerLogo}
                     alt='Logo Rucher Frisson'
-                    width={20}
+                    width={50}
                     height={60}
                 />
             </Marker>

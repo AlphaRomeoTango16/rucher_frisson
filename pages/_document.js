@@ -5,7 +5,10 @@ import Document, { Head, Html, Main, NextScript } from 'next/document'
       render() {
         return (
           <Html lang="en">
-            <Head></Head>
+            <Head>
+            <link rel='icon' href='/favicon.ico' />
+            <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet"/>    
+            </Head>
             <body>
               <Main />
               <NextScript />
