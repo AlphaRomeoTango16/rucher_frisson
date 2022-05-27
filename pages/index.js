@@ -1,13 +1,8 @@
+import React, { Suspense } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import MainVideo from '../components/video/MainVideo';
 import propTypes from 'prop-types';
-import dynamic from 'next/dynamic';
-
-const Loader = dynamic(
-  () => import('../components/loader/loader'),
-  { suspense: true }
-);
 
 Home.propTypes = {
   desktopDevice: propTypes.bool.isRequired,
