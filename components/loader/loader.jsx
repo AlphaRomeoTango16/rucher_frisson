@@ -31,17 +31,17 @@ const LoaderContainer = styled.div`
     width: 100%;
     height: 100vh;
     z-index: 30;
-    animation: opacity 5s 5s linear forwards;
+    animation: opacity 5s 3.5s linear forwards;
     @keyframes opacity {
         0% {
             opacity: 1;
         }
         50% {
-            opacity: 0.3;
+            opacity: 0.5;
         }
         100% {
             opacity: 0;
-            z-index: -30;
+            z-index: -20;
         }
     }
 `
@@ -53,7 +53,7 @@ const TopLoader = styled.div`
     background-color: white;
     width: 100%;
     height: 70%;
-    animation: up 3.5s 2.5s forwards;
+    animation: up 3.5s 1s forwards;
     @keyframes up {
         0% {
             height: 70%;
@@ -79,7 +79,7 @@ const BottomLoader = styled.div`
     height: 30%;
     position: absolute;
     bottom: 0;
-    animation: down 3s 2.5s forwards;
+    animation: down 3s 1s forwards;
     @keyframes down {
         0% {
             height: 30%;
