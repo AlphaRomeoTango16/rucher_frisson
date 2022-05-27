@@ -2,8 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import logo from '../../assets/logo/logo_rucher.svg'
 import styled from 'styled-components';
+import propTypes from 'prop-types'
 
-export default function Loader() {
+Loader.propTypes = {
+    desktopDevice: propTypes.bool.isRequired,
+    mobileDevice: propTypes.bool.isRequired
+}
+
+export default function Loader({desktopDevice, mobileDevice}) {
     return (
         <LoaderContainer>
             <TopLoader>
@@ -52,15 +58,15 @@ const TopLoader = styled.div`
     align-items: flex-end;
     background-color: white;
     width: 100%;
-    height: 70%;
+    height: ${({mobileDevice}) => mobileDevice ? '70%' : 'relative'};
     animation: up 3.5s 1s forwards;
     @keyframes up {
         0% {
-            height: 70%;
+            height: ${({mobileDevice}) => mobileDevice ? '70%' : 'relative'};
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
         100% {
-            height: 12%;
+            height: ${({mobileDevice}) => mobileDevice ? '12%' : 'relative'};
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
     }
@@ -69,24 +75,24 @@ const ImageContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: ${({mobileDevice}) => mobileDevice ? '50%' : '30%'};
 `
 
 const BottomLoader = styled.div`
     display: flex;
     background-color: white;
     width: 100%;
-    height: 30%;
+    height: ${({mobileDevice}) => mobileDevice ? '30%' : 'relative'};
     position: absolute;
     bottom: 0;
     animation: down 3s 1s forwards;
     @keyframes down {
         0% {
-            height: 30%;
+            height: ${({mobileDevice}) => mobileDevice ? '30%' : 'relative'};
             box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
         }
         100% {
-            height: 11.5%;
+            height: ${({mobileDevice}) => mobileDevice ? '11.5%' : 'relative'};
             box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
         }
     }
