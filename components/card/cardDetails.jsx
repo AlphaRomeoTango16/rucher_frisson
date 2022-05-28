@@ -13,15 +13,18 @@ import propTypes from 'prop-types';
 import 'swiper/css';
 
 CardDetails.propTypes = {
-    product: propTypes.object
+    product: propTypes.object.isRequired,
+    mobileDevice: propTypes.bool.isRequired
 }
 
-export default function CardDetails({product}) {
+export default function CardDetails({product, mobileDevice}) {
     const router = useRouter();
     const swiperRef = useRef(null);
 
     return (
-        <CardDetailsContainer>
+        <CardDetailsContainer
+            mobileDevice={mobileDevice}
+        >
             <ImageContainer>
                 <Swiper
                     ref={swiperRef}
@@ -31,7 +34,9 @@ export default function CardDetails({product}) {
                     <SwiperSlide><ProductVideo/></SwiperSlide>
                     {product.images.map((image, index) => {
                         return (
-                            <SwiperSlide key={index}>
+                            <SwiperSlide
+                                key={index}
+                            >
                                 <Image
                                     src={image.src}
                                     alt={image.description}
@@ -62,14 +67,14 @@ export default function CardDetails({product}) {
 
 const CardDetailsContainer = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: ${({mobileDevice}) => mobileDevice ? 'column' : 'row'};
     width: 100%;
-    margin-top: 100px;
+    margin-top: ${({mobileDevice}) => mobileDevice ? '100px' : '0px'};
 `
 
 const ImageContainer = styled.div`
     position: relative;
-    width: 100%;
+    width: ${({mobileDevice}) => mobileDevice ? '100%' : '50%'};
     height: 100%;
 `
 
@@ -123,6 +128,7 @@ const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 20px;
+    width: ${({mobileDevice}) => mobileDevice ? '100%' : '50%'};
 `
 
 const LineOne = styled.div`

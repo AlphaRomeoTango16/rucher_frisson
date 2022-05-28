@@ -41,6 +41,7 @@ const FooterContainer = styled.div`
     z-index: 20;
     bottom: 0;
     width: 100%;
+    height: ${({mobileDevice}) => mobileDevice ? '11.3%' : '16%'};
     background-color: white;
     box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
 `

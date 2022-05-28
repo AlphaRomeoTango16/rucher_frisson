@@ -82,6 +82,7 @@ const HeaderContainer = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
+    height: ${({mobileDevice}) => mobileDevice ? '10%' : '15%'};
     top: 0;
     height: ${({mobileDevice}) => mobileDevice ? '100px' : 'none'};
     background-color: white;

@@ -14,8 +14,12 @@ export default function Contact({mobileDevice}) {
             <Head>
                 <title>| Contact</title>
             </Head>
-            <Container mobileDevice={mobileDevice}>
-                <Form />
+            <Container
+                mobileDevice={mobileDevice}
+            >
+                <Form
+                    mobileDevice={mobileDevice}
+                />
             </Container>
         </Page>
     )

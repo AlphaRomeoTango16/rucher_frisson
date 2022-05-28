@@ -58,7 +58,7 @@ const Page = styled.div`
 
 const Container = styled.div`
     display: flex;
-    align-items: center;
+    align-items: ${({mobileDevice}) => mobileDevice ? 'center' : 'flex-start'};
     flex-direction: ${({mobileDevice}) => mobileDevice ? 'column' : 'row'};
     margin-bottom: ${({mobileDevice}) => mobileDevice ? '120px' : '0px'};
     width: 100%;
@@ -74,6 +74,7 @@ const ImageContainer = styled.div`
 
 const TextContainer = styled.div`
     width: ${({mobileDevice}) => mobileDevice ? '100%' : '50%'};
+    margin-bottom: ${({mobileDevice}) => mobileDevice ? '70px' : '10px'};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,6 +85,7 @@ const Text = styled.div`
     margin-left: ${({mobileDevice}) => mobileDevice ? '20px' : '10px'};
     margin-right: ${({mobileDevice}) => mobileDevice ? '20px' : '10px'};
     font-family: FiraSansCondensed-Light;
+    font-size: ${({mobileDevice}) => mobileDevice ? '100%' : '90%'}
 `
 
 const ButtonToTop = styled.a`

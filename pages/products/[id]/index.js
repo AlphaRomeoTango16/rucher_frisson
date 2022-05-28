@@ -24,6 +24,7 @@ export default function Product({mobileDevice}){
             {product &&
               <CardDetails
               product={product}
+              mobileDevice={mobileDevice}
             />
             }
           </Container>
@@ -36,7 +37,7 @@ const Page = styled.div`
 
 const Container = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: ${({mobileDevice}) => mobileDevice ? 'column' : 'row'};
     align-items: center;
     margin-bottom: ${({mobileDevice}) => mobileDevice ? '130px' : '10px'};
     width: 100%;

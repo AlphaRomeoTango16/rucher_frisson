@@ -3,12 +3,23 @@ import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import propTypes from 'prop-types'
+
+Form.propTypes = {
+    desktopDevice: propTypes.bool.isRequired,
+    mobileDevice: propTypes.bool.isRequired
+}
 
 
-export default function Form() {
+export default function Form({mobileDevice}) {
 
     return (
-        <FormContainer action='index.php' name='myform' method='POST'>
+        <FormContainer
+            mobileDevice={mobileDevice}
+            action='index.php'
+            name='myform'
+            method='POST'
+        >
             <FormTitle>Nous contacter</FormTitle>
                 <FirstContainer>
                     <LabelName htmlFor='name'/>
@@ -32,20 +43,20 @@ export default function Form() {
 const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin-top: 100px;
+    width: ${({mobileDevice}) => mobileDevice ? '100%' : '30%'};
+    margin-top: ${({mobileDevice}) => mobileDevice ? '100px' : '0px'};
     padding: 20px;
 `
 
 const FormTitle = styled.h2`
     display: flex;
     font-family: FiraSansCondensed-Regular;
-    margin-bottom: 50px;
+    margin-bottom: ${({mobileDevice}) => mobileDevice ? '50px' : '10px'};
 `
 
 const FirstContainer = styled.div`
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: ${({mobileDevice}) => mobileDevice ? '20px' : '10px'};
 `
 
 const SecondContainer = styled.div`
@@ -112,7 +123,7 @@ const TextArea = styled.textarea`
 const InputButton = styled.button`
     display: inline-block;
     margin: 10px;
-    margin-top: 30px;
+    margin-top: ${({mobileDevice}) => mobileDevice ? '30px' : '10px'};
     position: relative;
     height: 50px;
     font-family: Spartan-Regular;

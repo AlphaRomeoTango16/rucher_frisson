@@ -11,7 +11,9 @@ Loader.propTypes = {
 
 export default function Loader({desktopDevice, mobileDevice}) {
     return (
-        <LoaderContainer>
+        <LoaderContainer
+            mobileDevice={mobileDevice}
+        >
             <TopLoader
                 mobileDevice={mobileDevice}
             >
@@ -39,7 +41,7 @@ export default function Loader({desktopDevice, mobileDevice}) {
 const LoaderContainer = styled.div`
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: ${({mobileDevice}) => mobileDevice ? 'fixed' : 'absolute'};
     width: 100%;
     height: 100vh;
     z-index: 30;
@@ -48,13 +50,8 @@ const LoaderContainer = styled.div`
     -moz-animation: opacity 5s 3.5s linear forwards;
     @keyframes opacity {
         0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 0.5;
         }
         100% {
-            opacity: 0;
             z-index: -20;
         }
     }
@@ -76,7 +73,7 @@ const TopLoader = styled.div`
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
         100% {
-            height: ${({mobileDevice}) => mobileDevice ? '11.7%' : '16%'};
+            height: ${({mobileDevice}) => mobileDevice ? '11.7%' : '15%'};
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
     }
