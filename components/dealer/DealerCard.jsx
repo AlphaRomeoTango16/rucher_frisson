@@ -33,7 +33,6 @@ const DealerCardContainer = styled.div`
     display: flex;
     width: 100%;
     height: ${({mobileDevice}) => mobileDevice ? '100px' : '90px'};
-    border-top: 1px solid black;
     border-bottom: 1px solid black;
     cursor: pointer;
 `

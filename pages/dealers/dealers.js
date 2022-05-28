@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import MapNew from '../../components/map/mapNew';
 import dealers from '../../dealers';
 import DealerCard from '../../components/dealer/DealerCard';
-import {findCoordinatesFromAddress} from '../../lib/mapBoxService/findCoordinatesFromAdress';
 import propTypes from 'prop-types';
 
 Dealers.propTypes = {
@@ -60,11 +59,12 @@ export default function Dealers({mobileDevice, desktopDevice}) {
 }
 
 const Page = styled.div`
+    height: 100%;
 `
 
 const Container = styled.div`
     display: flex;
-    flex-direction: ${({mobileDevice}) => mobileDevice ? 'columnn' : 'row'};
+    flex-direction: ${({mobileDevice}) => mobileDevice ? 'column' : 'row'};
     align-items: ${({mobileDevice}) => mobileDevice ? 'center' : 'flex-start'};
     margin-bottom: ${({mobileDevice}) => mobileDevice ? '130px' : '0px'};
     width: 100%;

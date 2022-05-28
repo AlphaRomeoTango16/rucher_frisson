@@ -1,7 +1,6 @@
 import React, {useRef, useEffect, useState} from 'react';
 import Map, {Marker, NavigationControl} from 'react-map-gl';
 import Image from 'next/image';
-import styled from 'styled-components';
 import MarkerLogo from '../../assets/logo/marker.png'
 import propTypes from 'prop-types';
 
@@ -50,7 +49,7 @@ export default function MapNew({selectedCard, storeCoordinates, mobileDevice}) {
             }}
             style={{
                 width: '100%',
-                height: mobileDevice ? 300 : 300,
+                height: mobileDevice ? 300 : '100%',
                 marginTop: mobileDevice ? 100 : 0
             }}
             mapStyle="mapbox://styles/mapbox/streets-v9"
