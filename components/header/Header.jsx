@@ -38,7 +38,11 @@ export default function Header({desktopDevice, mobileDevice}) {
                 <ImageContainer
                     mobileDevice={mobileDevice}
                 >
-                    <Image
+                    <Link
+                        href='/'
+                        passHref
+                    >
+                        <Image
                             src={logo}
                             alt="Logo Rucher Frissons"
                             width={200}
@@ -46,6 +50,7 @@ export default function Header({desktopDevice, mobileDevice}) {
                             objectFit='fill'
                             priority
                         />
+                    </Link>
                 </ImageContainer>
                 {desktopDevice &&
                     <NavBarContainer>

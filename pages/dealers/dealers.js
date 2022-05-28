@@ -40,6 +40,7 @@ export default function Dealers({mobileDevice, desktopDevice}) {
                 <MapNew
                     selectedCard={selectedCard}
                     storeCoordinates={storeCoordinates}
+                    mobileDevice={mobileDevice}
                 />
                 {dealers.map((dealer, index) => {
                     return (
@@ -48,6 +49,7 @@ export default function Dealers({mobileDevice, desktopDevice}) {
                             dealer={dealer}
                             selectCard={selectCard}
                             selectedCard={selectedCard}
+                            mobileDevice={mobileDevice}
                         />
                     )
                 })
@@ -62,8 +64,9 @@ const Page = styled.div`
 
 const Container = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: ${({mobileDevice}) => mobileDevice ? '130px' : '10px'};
+    flex-direction: ${({mobileDevice}) => mobileDevice ? 'columnn' : 'row'};
+    align-items: ${({mobileDevice}) => mobileDevice ? 'center' : 'flex-start'};
+    margin-bottom: ${({mobileDevice}) => mobileDevice ? '130px' : '0px'};
     width: 100%;
+    height: ${({mobileDevice}) => mobileDevice ? 'none' : '100%'};
 `

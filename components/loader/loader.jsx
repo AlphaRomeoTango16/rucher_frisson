@@ -12,8 +12,12 @@ Loader.propTypes = {
 export default function Loader({desktopDevice, mobileDevice}) {
     return (
         <LoaderContainer>
-            <TopLoader>
-                <ImageContainer>
+            <TopLoader
+                mobileDevice={mobileDevice}
+            >
+                <ImageContainer
+                    mobileDevice={mobileDevice}
+                >
                     <Image
                         src={logo}
                         alt="Logo Rucher Frissons"
@@ -24,7 +28,9 @@ export default function Loader({desktopDevice, mobileDevice}) {
                     />
                 </ImageContainer>
             </TopLoader>
-            <BottomLoader>
+            <BottomLoader
+                mobileDevice={mobileDevice}
+            >
             </BottomLoader>
         </LoaderContainer>
     )
@@ -38,6 +44,8 @@ const LoaderContainer = styled.div`
     height: 100vh;
     z-index: 30;
     animation: opacity 5s 3.5s linear forwards;
+    -webkit-animation: opacity 5s 3.5s linear forwards;
+    -moz-animation: opacity 5s 3.5s linear forwards;
     @keyframes opacity {
         0% {
             opacity: 1;
@@ -58,15 +66,17 @@ const TopLoader = styled.div`
     align-items: flex-end;
     background-color: white;
     width: 100%;
-    height: ${({mobileDevice}) => mobileDevice ? '70%' : 'relative'};
+    height: ${({mobileDevice}) => mobileDevice ? '70%' : '70%'};
     animation: up 3.5s 1s forwards;
+    -webkit-animation: up 3.5s 1s forwards;
+    -moz-animation: up 3.5s 1s forwards;
     @keyframes up {
         0% {
-            height: ${({mobileDevice}) => mobileDevice ? '70%' : 'relative'};
+            height: ${({mobileDevice}) => mobileDevice ? '70%' : '70%'};
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
         100% {
-            height: ${({mobileDevice}) => mobileDevice ? '12%' : 'relative'};
+            height: ${({mobileDevice}) => mobileDevice ? '11.7%' : '16%'};
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
     }
@@ -82,17 +92,19 @@ const BottomLoader = styled.div`
     display: flex;
     background-color: white;
     width: 100%;
-    height: ${({mobileDevice}) => mobileDevice ? '30%' : 'relative'};
+    height: ${({mobileDevice}) => mobileDevice ? '30%' : '30%'};
     position: absolute;
     bottom: 0;
     animation: down 3s 1s forwards;
+    -webkit-animation: down 3s 1s forwards;
+    -moz-animation: down 3s 1s forwards;
     @keyframes down {
         0% {
-            height: ${({mobileDevice}) => mobileDevice ? '30%' : 'relative'};
+            height: ${({mobileDevice}) => mobileDevice ? '30%' : '30%'};
             box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
         }
         100% {
-            height: ${({mobileDevice}) => mobileDevice ? '11.5%' : 'relative'};
+            height: ${({mobileDevice}) => mobileDevice ? '11.5%' : '16%'};
             box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
         }
     }

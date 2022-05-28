@@ -10,9 +10,10 @@ const accessToken = 'pk.eyJ1IjoiYWxwaGExNiIsImEiOiJja3dxN2R4NDcwandwMnBxb2s0cjN2
 MapNew.propTypes = {
     selectedCard: propTypes.bool.isRequired,
     storeCoordinates: propTypes.object,
+    mobileDevice: propTypes.bool.isRequired
 }
 
-export default function MapNew({selectedCard, storeCoordinates}) {
+export default function MapNew({selectedCard, storeCoordinates, mobileDevice}) {
 
     const [lng, setLng] = useState(1.85);
     const [lat, setLat] = useState(48.78);
@@ -40,13 +41,18 @@ export default function MapNew({selectedCard, storeCoordinates}) {
 
     return (
         <Map
+            mobileDevice={mobileDevice}
             ref={mapRef}
             initialViewState={{
             longitude: lng,
             latitude: lat,
             zoom: zoom,
             }}
-            style={{width: '100%', height: 300, marginTop: 100}}
+            style={{
+                width: '100%',
+                height: mobileDevice ? 300 : 300,
+                marginTop: mobileDevice ? 100 : 0
+            }}
             mapStyle="mapbox://styles/mapbox/streets-v9"
             attributionControl={false}
             mapboxAccessToken={accessToken}

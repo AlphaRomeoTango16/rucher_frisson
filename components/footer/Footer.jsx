@@ -37,7 +37,7 @@ export default function Footer({mobileDevice}) {
 }
 
 const FooterContainer = styled.div`
-    position: ${({mobileDevice}) => mobileDevice ? 'fixed' : 'relative'};
+    position: ${({mobileDevice}) => mobileDevice ? 'fixed' : 'absolute'};
     z-index: 20;
     bottom: 0;
     width: 100%;

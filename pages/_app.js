@@ -1,4 +1,4 @@
-import React, {useEffect, useState, Suspense} from 'react'
+import React, {useEffect, useState, Suspense, startTransition} from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout/layout'
 import '../styles/globals.css'
@@ -18,9 +18,9 @@ function MyApp({ Component, pageProps }) {
       const mobile = window.matchMedia('(max-width: 768px)')
       if (mobile.matches) {
         mobile.addEventListener('change', () =>{})
-        setMobileDevice(true);
+        startTransition(()=> {setMobileDevice(true);});
       } else {
-        setDesktopDevice(true);
+        startTransition(()=> {setDesktopDevice(true)});
       }
   }, [mobileDevice, desktopDevice])
 

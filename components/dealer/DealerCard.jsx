@@ -7,12 +7,16 @@ import propTypes from 'prop-types';
 DealerCard.propTypes = {
     dealer: propTypes.object.isRequired,
     selectCard: propTypes.func.isRequired,
-    selectedCard: propTypes.bool.isRequired
+    selectedCard: propTypes.bool.isRequired,
+    mobileDevice: propTypes.bool.isRequired
 }
 
-export default function DealerCard({dealer, selectCard, selectedCard}) {
+export default function DealerCard({dealer, selectCard, selectedCard, mobileDevice}) {
     return (
-        <DealerCardContainer onClick={() => selectCard(dealer)}>
+        <DealerCardContainer
+            onClick={() => selectCard(dealer)}
+            mobileDevice={mobileDevice}
+        >
             <Content $selectedCard={selectedCard}>
                 <DealerName $selectedCard={selectedCard}>{dealer.name}</DealerName>
                 <DealerAdress $selectedCard={selectedCard}>{dealer.address}</DealerAdress>
@@ -28,7 +32,7 @@ export default function DealerCard({dealer, selectCard, selectedCard}) {
 const DealerCardContainer = styled.div`
     display: flex;
     width: 100%;
-    height: 100px;
+    height: ${({mobileDevice}) => mobileDevice ? '100px' : '90px'};
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     cursor: pointer;
