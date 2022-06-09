@@ -74,6 +74,6 @@ const Credit = styled.p`
     font-family: Spartan-Light;
     text-align: center;
     font-size: ${({mobileDevice}) => mobileDevice ? '5px' : '10px'};
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     color: black;
 `

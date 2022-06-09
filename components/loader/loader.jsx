@@ -73,7 +73,7 @@ const TopLoader = styled.div`
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
         100% {
-            height: ${({mobileDevice}) => mobileDevice ? '11.7%' : '15%'};
+            height: ${({mobileDevice}) => mobileDevice ? '10%' : '15%'};
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
     }
@@ -101,7 +101,7 @@ const BottomLoader = styled.div`
             box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
         }
         100% {
-            height: ${({mobileDevice}) => mobileDevice ? '11.5%' : '16%'};
+            height: ${({mobileDevice}) => mobileDevice ? '15%' : '16%'};
             box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
         }
     }
